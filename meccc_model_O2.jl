@@ -28,8 +28,8 @@ Gdrop_mm = -z*F*voltage_drop_mm/1000 #delta G drop per mm in kJ
 
 #O2 max. solubility 0.00026 M 
 
-O2_model = DataFrame(Depth = 0:0.1:5)
-O2_model[!, :O2] = twopart_concentration_profile.(0.0003, 1E-6, 0.5, O2_model[!, :Depth])
+O2_model = DataFrame(Depth = 0:0.1:10)
+O2_model[!, :O2] = twopart_concentration_profile.(0.0003, 1E-9, 0.5, O2_model[!, :Depth])
 O2_model[!, :O2_micromol] =  O2_model[!, :O2] *1E6
 O2_model[!, :Q] =  O2_model[!, :O2] ./ 0.0003
 O2_model[!, :deltaG] = deltaG.(293, O2_model[!, :Q])
